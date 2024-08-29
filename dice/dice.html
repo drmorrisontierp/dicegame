@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <link href="dice.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <defs>
+          <linearGradient id="edge" gradientTransform='rotate(90)'>
+            <stop offset="0%" stop-color="black" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="black" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="light-edge" gradientTransform='rotate(90)'>
+            <stop offset="0%" stop-color="white" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="white" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="spot">
+            <stop offset="0%" stop-color="gold" stop-opacity='0.9' />
+            <stop offset="100%" stop-color='black' stop-opacity='0.5' />
+          </linearGradient>
+          <linearGradient id="spot-edge">
+            <stop offset="0%" stop-color="black" stop-opacity='0.9' />
+            <stop offset="100%" stop-color='white' stop-opacity='0.5' />
+          </linearGradient>
+          <linearGradient id="Bob">
+            <stop offset="0%" stop-color="white" stop-opacity="0.5" />
+            <stop offset="50%" stop-color="#242424" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="white" stop-opacity="0.2" />
+          </linearGradient>
+          <linearGradient id="Hope">
+            <stop offset="0%" stop-color="#5f777d" stop-opacity="1" />
+            <stop offset="50%" stop-color="#b2ced5" stop-opacity="1" />
+            <stop offset="100%" stop-color="#3f484a" stop-opacity="1" />
+          </linearGradient>
+          <linearGradient id="Glass">
+            <stop offset="0%" stop-color="#5f777d" stop-opacity="0.3" />
+            <stop offset="50%" stop-color="#b2ced5" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#3f484a" stop-opacity="0.2" />
+          </linearGradient>
+          <linearGradient id="Flat">
+            <stop offset="0%" stop-color="white" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="gray" stop-opacity="0.3" />
+          </linearGradient>
+          <linearGradient id="Toggle">
+            <stop offset="0%" stop-color="black" stop-opacity="0.4" />
+            <stop offset="10%" stop-color="gray" stop-opacity="0.4"/>
+            <stop offset="95%" stop-color="gray" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="white" stop-opacity="0.3" />
+          </linearGradient>
+          <linearGradient id="ToggleTwo" x1="0" y1="0" x2="0.93" y2="-0.08" >
+            <stop offset="0%" stop-color="black" stop-opacity="0.5" />
+            <stop offset="10%" stop-color="gray" stop-opacity="0.4"/>
+            <stop offset="95%" stop-color="gray" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="white" stop-opacity="0.7" />
+          </linearGradient>
+          <linearGradient id="ToggleOne" x1="0.1" y1="0.05" x2="1" y2="0.13" >
+            <stop offset="0%" stop-color="black" stop-opacity="0.5" />
+            <stop offset="10%" stop-color="gray" stop-opacity="0.4"/>
+            <stop offset="95%" stop-color="gray" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="white" stop-opacity="0.7" />
+          </linearGradient>
+        </defs>
+      </svg>
+    <div class="screen">
+        <div class="left">
+            <div id="background">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <circle cx="50%" cy="50%" r="65%" stroke="white" stroke-width="5%" fill="#193f14" />
+        </svg>
+            </div>
+            <div class="die" style="grid-area: 1/2/2/4; padding-left: 40%" id="first" onclick="enterDie('first')"></div>
+            <div class="die" style="grid-area: 1/5/2/7; padding-right: 40%" id="second" onclick="enterDie('second')"></div>
+            <div class="die" style="grid-area: 2/1/3/3; padding-left: 50%; margin-right: -10%;" id="third" onclick="enterDie('third')"></div>
+            <div class="questionDie" id="question-die" style="grid-area: 2/3/3/6; height: 20vh; width: 23.5vh;">
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="100% " width="100% " >
+          <rect id="question-base" x='0' y='0' rx='20%' ry='20%' width='100%' height='100%' fill='red' />
+          <path d='M6,6 Q10,0 20,0 L80,0 Q90,0 94,6 L85,15 L15,15, L6,6' transform='scale(1.52)' fill='url(#light-edge)' />
+          <path d='M6,6 Q10,0 20,0 L80,0 Q90,0 94,6 L85,15 L15,15, L6,6' transform='rotate(90, 50, 50) scale(1.52) translate(0, -34)' fill='url(#light-edge)' />
+          <path d='M6,6 Q10,0 20,0 L80,0 Q90,0 94,6 L85,15 L15,15, L6,6' transform='rotate(180, 50, 50) scale(1.52) translate(-34, -33)' fill='url(#edge)' />
+          <path d='M6,6 Q10,0 20,0 L80,0 Q90,0 94,6 L85,15 L15,15, L6,6' transform='rotate(270, 50, 50) scale(1.52) translate(-33, 0)' fill='url(#edge)' />
+          <text id="question" x='50%' y='70%' font-size="100" font-weight="bold" text-anchor="middle" fill='black' stroke='url(#spot-edge)'></text>
+        </svg>
+
+      </div>
+      <div class="die" style="grid-area: 2/6/3/8; padding-right: 50%; margin-left: -10%;" id="fourth" onclick="enterDie('fourth')"></div>
+      <div class="die" style="grid-area: 3/2/4/4; padding-left: 40%" id="fifth" onclick="enterDie('fifth')"></div>
+      <div class="die" style="grid-area: 3/5/4/7; padding-right: 40%" id="sixth" onclick="enterDie('sixth')"></div>
+    </div>
+    <div class="right">
+      <div id="keypad" ></div>
+      <div id="level-button" >
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect x="9%" y="5%" rx="8%" ry="2%" width="80%" height="91%" fill="black" />
+          <polygon id="outerShadowOne" points="" transform="scale(1.4,2)"fill="#00000037"/>
+          <path id="polyone" d="M9 54 L9 10 Q9 6 15 6 L55 6 Q59 6 59 10 L59 54 Z" transform="scale(1.4,2)" stroke="black" fill="#d44a20" />
+          <path id="shadowone" d="M9 54 L9 10 Q9 6 15 6 L55 6 Q59 6 59 10 L59 54 Z" transform="scale(1.4,2)" stroke="black" fill="url(#Toggle)" />
+          
+          <polygon id="outerShadowTwo" points="7,55 56,55 56,110 0,110" transform="scale(1.4,1.9)" fill="#00000037"/>
+          <path id="polytwo" d="M9 55 L13 103 Q15 105 17 105  L59 105 Q63 105 63 102 L59 55 Z" transform="scale(1.4,1.9)" stroke="black" fill="#5c5353" />
+          <path id="shadowtwo" d="M9 55 L13 103 Q15 105 17 105  L59 105 Q63 105 63 102 L59 55 Z" transform="scale(1.4,1.9)" stroke="black" fill="url(#ToggleTwo)" />
+          
+          <text id="textone" x="37%" y="34%" id="level-one" transform="" font-size="3em" stroke="black">1</text>
+          <text id="texttwo" x="37%" y="83%" id="level-two" transform="rotate(-5) translate(-10, 0)" font-size="3em" stroke="black">2</text>
+<foreignObject x="9%" y="5%" width="83%" height="55%">
+    <div xmlns="http://www.w3.org/1999/xhtml" onclick="changeLevel(false)" style="background-color: transparent;min-height: 80%;min-width: 80%;"></div>
+</foreignObject>
+<foreignObject x="9%" y="50%" width="83%" height="55%">
+    <div xmlns="http://www.w3.org/1999/xhtml" onclick="changeLevel(true)" style="background-color: transparent;min-height: 80%;min-width: 80%;"></div>
+</foreignObject>
+        </svg>
+      </div>
+      <div class="memory-button" id="M1" onclick="memory('M1')" style="grid-area: 2/3/3/4"></div>
+      <div class="memory-button" id="M2" onclick="memory('M2')" style="grid-area: 2/4/3/5"></div>
+      <div class="memory-button" id="M3" onclick="memory('M3')" style="grid-area: 2/5/3/6"></div>
+      <div class="memory-button" id="M4" onclick="memory('M4')" style="grid-area: 2/6/3/7"></div>
+      <div class="opbutton" id="+" onclick="enter('+')" style="grid-area: 3/3/4/4"></div>
+      <div class="opbutton" id="-" onclick="enter('-')" style="grid-area: 3/4/4/5"></div>
+      <div class="opbutton" id="*" onclick="enter('*')" style="grid-area: 4/3/5/4"></div>
+      <div class="opbutton" id="/" onclick="enter('/')" style="grid-area: 4/4/5/5"></div>
+      <div class="opbutton" id="(" onclick="enter('(')" style="grid-area: 3/5/4/6"></div>
+      <div class="opbutton" id=")" onclick="enter(')')" style="grid-area: 3/6/4/7"></div>
+      <div class="opbutton" id="del" onclick="del()" style="grid-area: 4/5/5/6"></div>
+      <div class="opbutton" id="clear" onclick="allClear()" style="grid-area: 4/6/5/7"></div>
+    
+    <div class="display" style="grid-area: 1/1/2/7; max-height: 20vh; background-color: #00000037; box-shadow: -10px 2px #00000037;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <rect x="0" y="0" rx="2%" ry="2%" width="100%" height="100%" fill="url(#Hope)" stroke="black" stroke-width="2%" />
+          <rect x="2%" y="8% " rx="2%" ry="2%" width="70%" height="84%" fill="cyan" stroke="black" stroke-width="2%" />
+          <rect id="answer-field" x="68%" y="8%" rx="2%" ry="2%" width="30%" height="84%" fill="cyan" stroke="black" stroke-width="2%" />
+          <text id="expression" x="4%" y="63%" text-anchor="left" font-size="2.5em" stroke="black" fill="black"></text>
+          
+          <text id="result" x="82%" y="63%" text-anchor="middle" font-size="3em" stroke="black" fill="black"></text>
+          <rect x="2%" y="8%" rx="2%" ry="2%" width="66%" height="84%" fill="url(#Glass)" />
+          <rect x="68%" y="8%" rx="2%" ry="2%" width="30%" height="84%" fill="url(#Glass)" />
+        </svg>
+      </div>
+      <div class="opbutton" id="throw" onclick="cast('throw')" style="grid-area: 5/4/6/6"></div>
+      <div style="grid-area: 5/3/6/4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 120 120">
+          <rect x="5%" y="5%" rx="5%" ry="5%" width="90%" height="90%" fill="url(#Hope)" stroke="black" stroke-width="1%" />
+          <text x="50%" y="30%" text-anchor="middle" font-size="1.5em" stroke="black" fill="transparent">Bonus</text>
+          <text id="bonus" x="50%" y="70%" text-anchor="middle" font-size="3em" stroke="black" fill="black">3</text>
+          <rect x="5%" y="5%" rx="5%" ry="5%" width="90%" height="90%" fill="url(#Bob)" />
+        </svg>
+      </div>
+      <div style="grid-area: 5/6/6/7 ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 120 120">
+          <rect x="5%" y="5%" rx="5%" ry="5%" width="90%" height="90%" fill="url(#Hope)" stroke="black" stroke-width="1%" />
+          <text x="50%" y="30%" text-anchor="middle" font-size="1.5em" stroke="black" fill="transparent">Score</text>
+          <text id="score" x="50%" y="70%" text-anchor="middle" font-size="3em" stroke="black" fill="black">0</text>
+          <rect x="5%" y="5%" rx="5% " ry="5%" width="90%" height="90%" fill="url(#Bob)" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script src="dice.js"></script>
+
+</body>
+</html>
